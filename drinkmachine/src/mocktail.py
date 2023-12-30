@@ -39,7 +39,8 @@ DRINK_SIZE = 8 # size of the cup to fill in ounces
 #   bottle 4 = triple sec
 #   bottle 5 = lime cordial
 #   bottle 6 = orange juice
-
+#   bottle 7 = cranberry
+#   bottle 8 = dummy used for proportions for shots
 
 MENU = {
   'adirondack': [
@@ -651,6 +652,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 7 },
   ],
   'rum sunburst': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -801,6 +803,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 7 },
   ],
   'vodka sunrise': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -897,28 +900,37 @@ def make_drink(drink_name):
         total_proportion += p['proportion']
     drink_time = get_pour_time(sorted_recipe[0]['proportion'], total_proportion)
     print('Drink will take ' + str(math.floor(drink_time)) + 's')
-
+    pouringShot = False
+    
     # for each pour
     for i, pour in enumerate(sorted_recipe):
 
         # for first ingredient
         if i == 0:
 
-            # start pouring with no delay
-            pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(drink_time), 0 , True, drink_name]))
-            pour_thread.name = 'pour' + str(pour['bottle'])
-            pour_thread.start()
-            timeToPour=(math.floor(drink_time))
+            if pour['bottle'] ==8:
+                pouringShot = True
+                print("Pouring a shot")
+            else:
+              # start pouring with no delay
+              pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(drink_time), 0 , True, drink_name]))
+              pour_thread.name = 'pour' + str(pour['bottle'])
+              pour_thread.start()
+              timeToPour=(math.floor(drink_time))
+
 
         # for other ingredients
         else:
-
             # calculate the latest time they could start
             pour_time = get_pour_time(pour['proportion'], total_proportion)
             latest_time = drink_time - pour_time
-
+            
             # start each other ingredient at a random time between now and latest time
             delay = random.randint(0, math.floor(latest_time))
+            if pouringShot:
+              delay = 0
+              timeToPour = math.floor(pour_time)
+              pouringShot = False
             pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(pour_time), delay]))
             pour_thread.name = 'pour' + str(pour['bottle'])
             pour_thread.start()
