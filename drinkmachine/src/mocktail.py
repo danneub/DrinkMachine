@@ -522,6 +522,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 7 },
   ],
   'orange blossom': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -572,6 +573,8 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 7 },
+
   ],
   'orange lime gin fizz': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -743,6 +746,8 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 7 },
+
   ],
   'tequila sunburst': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -764,7 +769,7 @@ MENU = {
     { 'bottle' : 6, 'proportion': 8 },
     { 'bottle' : 7, 'proportion': 0 },
   ],
-  'the gto': [
+  'the g t o': [
     { 'bottle' : 0, 'proportion': 0 },
     { 'bottle' : 1, 'proportion': 16 },
     { 'bottle' : 2, 'proportion': 0 },
@@ -888,18 +893,18 @@ def make_drink(drink_name):
     speachEngine.runAndWait();
     # get drink recipe
     recipe = MENU[drink_name]
-    print(drink_name + ' = ' + str(recipe))
+    #print(drink_name + ' = ' + str(recipe))
 
     # sort drink ingredients by proportion
     sorted_recipe = sorted(recipe, key=lambda p: p['proportion'], reverse=True)
-    print(sorted_recipe)
+    #print(sorted_recipe)
 
     # calculate time to pour most used ingredient
     total_proportion = 0
     for p in sorted_recipe:
         total_proportion += p['proportion']
     drink_time = get_pour_time(sorted_recipe[0]['proportion'], total_proportion)
-    print('Drink will take ' + str(math.floor(drink_time)) + 's')
+    #print('Drink will take ' + str(math.floor(drink_time)) + 's')
     pouringShot = False
     
     # for each pour
@@ -910,7 +915,7 @@ def make_drink(drink_name):
 
             if pour['bottle'] ==8:
                 pouringShot = True
-                print("Pouring a shot")
+                #print("Pouring a shot")
             else:
               # start pouring with no delay
               pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(drink_time), 0 , True, drink_name]))
@@ -935,7 +940,7 @@ def make_drink(drink_name):
             pour_thread.name = 'pour' + str(pour['bottle'])
             pour_thread.start()
     
-    print('time to pour' + str(timeToPour) )
+    # print('time to pour ' + str(timeToPour) )
     return timeToPour      
   
 
@@ -1043,9 +1048,9 @@ def parseDrinkName(commandString):
     parsedCommandList = commandString.split(' ')
     wordsInCommand = len(parsedCommandList)
     wordsToSearch = min(maxWordsInName,wordsInCommand)
-    print('words to search for name match= ' + str(wordsToSearch) )
+    #print('words to search for name match= ' + str(wordsToSearch) )
     index=wordsInCommand-1
-    drinkFound = ''
+    drinkNameFound = ''
     found = False
     while wordsToSearch > 0:
         firstIndex = wordsInCommand - wordsToSearch
@@ -1063,16 +1068,16 @@ def parseDrinkName(commandString):
                     drinkName = drinkName + ' '
             print('> Search MENU for: ' + drinkName)
             if drinkName in MENU:
-                print(drinkName + 'found in menu !!!!!!')
+                print(drinkName + ' found in menu !!!!!!')
                 found = True
-                drinkFound = drinkName
+                drinkNameFound = drinkName
             else:
-                drinkFound = ''
+                drinkNameFound = ''
             firstIndex = firstIndex - 1
             # time.sleep(1)
         wordsToSearch = wordsToSearch - 1        
         # if not drinkName in MENU:
-    return drinkFound  
+    return drinkNameFound  
 
 
 
@@ -1113,6 +1118,8 @@ class AssistantThread(Thread):
    
                 # conversation ux lights hotword
                 self.msg_queue.put('xh!')
+                speachEngine.say('welcom  What can i make for you?')
+                speachEngine.runAndWait();
 
             else:
 
@@ -1126,8 +1133,9 @@ class AssistantThread(Thread):
                 
                 
                 rec = KaldiRecognizer(model, samplerate)
-                Drink_Found = False
-                while not self.shutdown_flag.is_set() and not Drink_Found:
+                DrinkBeingPoured = False
+                GettingDrinkName = True
+                while not self.shutdown_flag.is_set() and not DrinkBeingPoured:
                     data = q.get()
                     if rec.AcceptWaveform(data):
                         #print(rec.Result())
@@ -1136,29 +1144,45 @@ class AssistantThread(Thread):
                         print('speakstring='+speakString)
                         speakStringSize =len(speakString)
                         if speakStringSize > 0:
-                            drinkFound = parseDrinkName(speakString)
-                            print('returned drink ' + drinkFound)
-                            #print(' # words=' + str(len(A)) )
-                            if drinkFound == '':
+                            # got text from user, is it a drink request?
+                            if GettingDrinkName:
+                              drinkNameFound = parseDrinkName(speakString)
+                              print('returned drink ' + drinkNameFound)
+                              #print(' # words=' + str(len(A)) )
+                              if drinkNameFound == '':
                                 print('drink "' + speakString + '" not in menu')
                                 speachEngine.say('I don\'t understand "' + speakString + '" try again please.')
                                 speachEngine.runAndWait();
-                            else:                            
+                              else:                            
                                 # speachEngine.say('do you want a '+ speakString);
+                                parseDrinkName(speakString);
+                                speachEngine.say('Do you want a ' + drinkNameFound)
                                 speachEngine.runAndWait();
-                                # Making drink ux lights 
-                                self.msg_queue.put('xl!')
-                                pourTime=0;
-                                pourTime = make_drink(drinkFound);
-                                Drink_Found = True
+                                GettingDrinkName = False
+                                GettingConfirmation = True
+                            elif GettingConfirmation:
+                               if ("yes" in speakString) or ("yup" in speakString) or ("yeah" in speakString):
+                               
+                                 # Making drink ux lights 
+                                 self.msg_queue.put('xl!')
+                                 pourTime=0;
+                                 pourTime = make_drink(drinkNameFound);
+                                 DrinkBeingPoured = True
+                               elif ("no" in speakString):
+                                 GettingConfirmation = False
+                                 GettingDrinkName = True
+                                 speachEngine.say('ok  What can i make for you?')
+                                 speachEngine.runAndWait();
+                                
+                                # confirm selection
                         #if speakString.find("gin and tonic")>=0:
                         #if speakString.find("gin")>=0 and speakString.find("tonic")>=0:
                             #speakString="gin and tonic"
-                            #Drink_Found = True
+                            #DrinkBeingPoured = True
                         # soundstream.stop_stream()
-            if Drink_Found:
+            if DrinkBeingPoured:
                 time.sleep(pourTime)
-                speachEngine.say('Youre '+ drinkFound + ' is done.  Enjoy!')
+                speachEngine.say('Youre '+ drinkNameFound + ' is done.  Enjoy!')
                 speachEngine.runAndWait();
             # Start the state machine for conversing
             print("call from gen_converse_request>>>>>>>>>>>")
