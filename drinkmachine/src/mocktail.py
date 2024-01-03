@@ -42,6 +42,7 @@ DRINK_SIZE = 8 # size of the cup to fill in ounces
 #   bottle 7 = cranberry
 #   bottle 8 = dummy used for proportions for shots
 
+
 MENU = {
   'adirondack': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -52,6 +53,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'bermuda triangle': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -62,6 +64,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 5 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'blood bath punch': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -72,6 +75,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'blossom': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -82,6 +86,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'blush lily': [
     { 'bottle' : 0, 'proportion': 6 },
@@ -92,6 +97,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 8 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 12 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'brass monkey': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -102,6 +108,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'california breeze': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -112,6 +119,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 4 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cape cod': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -122,6 +130,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cape codder': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -132,6 +141,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'citrus cranberry punch': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -142,6 +152,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cosmo': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -152,6 +163,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cosmo rita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -162,6 +174,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cosmopolitan': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -172,6 +185,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cran aid': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -182,6 +196,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -192,6 +207,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry iced tea': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -202,6 +218,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry juice': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -212,6 +229,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry kamikaze': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -222,6 +240,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 3 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry margarita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -232,6 +251,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 4 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry orange crush': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -242,6 +262,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry orange rum spritzer': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -252,6 +273,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry shot': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -262,6 +284,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'cranberry toad': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -272,6 +295,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 5 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry vodka': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -282,6 +306,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'crantinis': [
     { 'bottle' : 0, 'proportion': 4 },
@@ -292,6 +317,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'creamsicle delight': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -302,6 +328,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 6 },
   ],
   'gimlet': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -312,6 +339,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry gimlet': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -322,6 +350,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 4 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 3 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'gin and cranberry': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -332,6 +361,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 3 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'gin and orange': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -342,6 +372,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'gin and tonic': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -352,6 +383,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 6 },
   ],
   'gin daiquiri': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -362,6 +394,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'gin screwdriver': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -372,6 +405,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'hurricane': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -382,8 +416,9 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 3 },
     { 'bottle' : 7, 'proportion': 3 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
-  'kamakazie': [
+  'kamikazie': [
     { 'bottle' : 0, 'proportion': 1 },
     { 'bottle' : 1, 'proportion': 0 },
     { 'bottle' : 2, 'proportion': 0 },
@@ -392,8 +427,9 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
-  'leq spreader': [
+  'leg spreader': [
     { 'bottle' : 0, 'proportion': 1 },
     { 'bottle' : 1, 'proportion': 1 },
     { 'bottle' : 2, 'proportion': 1 },
@@ -402,6 +438,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'long beach tea': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -412,6 +449,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'madras': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -422,6 +460,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'margarita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -432,6 +471,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'metropolitan': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -442,6 +482,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'metropolitan cranberry martini': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -452,8 +493,9 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
-  'mexian madras': [
+  'mexican madras': [
     { 'bottle' : 0, 'proportion': 0 },
     { 'bottle' : 1, 'proportion': 0 },
     { 'bottle' : 2, 'proportion': 4 },
@@ -462,6 +504,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 12 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'mexican river': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -472,6 +515,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'midnight sun martini': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -482,6 +526,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'my pleasure': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -492,6 +537,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'new england iced tea': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -502,6 +548,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 2 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'oj': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -512,6 +559,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'oj shot': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -522,7 +570,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
-    { 'bottle' : 8, 'proportion': 7 },
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'orange blossom': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -533,6 +581,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'orange crush': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -543,6 +592,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 4 },
   ],
   'orange gin buck': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -553,6 +603,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 6 },
   ],
   'orange juice': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -563,6 +614,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'orange juice shot': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -573,8 +625,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
-    { 'bottle' : 8, 'proportion': 7 },
-
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'orange lime gin fizz': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -585,6 +636,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 16 },
   ],
   'orange margarita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -595,6 +647,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'orange vesper martini': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -605,6 +658,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'phoenix sunset margarita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -615,6 +669,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'prickly madras': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -625,6 +680,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 3 },
     { 'bottle' : 7, 'proportion': 3 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'red rooster': [
     { 'bottle' : 0, 'proportion': 4 },
@@ -635,6 +691,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'rum screwdriver': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -645,6 +702,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'rum shot': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -655,7 +713,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
-    { 'bottle' : 8, 'proportion': 7 },
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'rum sunburst': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -666,6 +724,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 5 },
     { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'sandy margarita': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -676,6 +735,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 6 },
     { 'bottle' : 6, 'proportion': 3 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'screwdriver': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -686,6 +746,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'shark': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -696,6 +757,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'south of the border screwdriver': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -706,6 +768,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 6 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'tequila bite': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -716,6 +779,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'tequila oasis': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -726,6 +790,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 2 },
     { 'bottle' : 7, 'proportion': 4 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'tequila screwdriver': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -736,6 +801,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 4 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'tequila shot': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -746,8 +812,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
-    { 'bottle' : 8, 'proportion': 7 },
-
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'tequila sunburst': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -758,6 +823,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 5 },
     { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'tequila sunrise': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -768,8 +834,9 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 8 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
-  'the g t o': [
+  'gto': [
     { 'bottle' : 0, 'proportion': 0 },
     { 'bottle' : 1, 'proportion': 16 },
     { 'bottle' : 2, 'proportion': 0 },
@@ -778,6 +845,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 2 },
     { 'bottle' : 6, 'proportion': 1 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 30 },
   ],
   'vodka cranberry': [
     { 'bottle' : 0, 'proportion': 3 },
@@ -788,6 +856,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 8 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'vodka gimlet': [
     { 'bottle' : 0, 'proportion': 2 },
@@ -798,6 +867,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'vodka shot': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -808,7 +878,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
-    { 'bottle' : 8, 'proportion': 7 },
+    { 'bottle' : 8, 'proportion': 99 },
   ],
   'vodka sunrise': [
     { 'bottle' : 0, 'proportion': 1 },
@@ -819,9 +889,10 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 5 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 1 },
   ],
   'vodka tonic': [
-    { 'bottle' : 0, 'proportion': 3 },
+    { 'bottle' : 0, 'proportion': 2 },
     { 'bottle' : 1, 'proportion': 0 },
     { 'bottle' : 2, 'proportion': 0 },
     { 'bottle' : 3, 'proportion': 0 },
@@ -829,6 +900,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 4 },
   ],
   'double dutch cosmopolitan': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -839,6 +911,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'gin cosmopolitan': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -849,6 +922,7 @@ MENU = {
     { 'bottle' : 5, 'proportion': 1 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 6 },
+    { 'bottle' : 8, 'proportion': 0 },
   ],
   'plymouth rock': [
     { 'bottle' : 0, 'proportion': 0 },
@@ -859,9 +933,152 @@ MENU = {
     { 'bottle' : 5, 'proportion': 0 },
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 5 },
+    { 'bottle' : 8, 'proportion': 0 },
+  ],
+  'gin shot': [
+    { 'bottle' : 0, 'proportion': 0 },
+    { 'bottle' : 1, 'proportion': 1 },
+    { 'bottle' : 2, 'proportion': 0 },
+    { 'bottle' : 3, 'proportion': 0 },
+    { 'bottle' : 4, 'proportion': 0 },
+    { 'bottle' : 5, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 99 },
+  ],
+  'triplesec shot': [
+    { 'bottle' : 0, 'proportion': 0 },
+    { 'bottle' : 1, 'proportion': 0 },
+    { 'bottle' : 2, 'proportion': 0 },
+    { 'bottle' : 3, 'proportion': 0 },
+    { 'bottle' : 4, 'proportion': 1 },
+    { 'bottle' : 5, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 8, 'proportion': 99 },
   ]
 }
-
+MENU_ALIAS = {
+     'like their punch':   "blood bath punch" ,
+     'blood bath clench':   "blood bath punch" ,
+     'blood bath times':   "blood bath punch" ,
+     'blood bath coach':   "blood bath punch" ,
+     'blush really':   "blush lily" ,
+     'brass smoking':   "brass monkey" ,
+     'grass monkey':   "brass monkey" ,
+     'california v':   "california breeze" ,
+     'california breathe':   "california breeze" ,
+     'citrus cranberry point':   "citrus cranberry punch" ,
+     'because no rita':   "cosmo rita" ,
+     'cosmo reader':   "cosmo rita" ,
+     'cause movie that':   "cosmo rita" ,
+     'cause no rita':   "cosmo rita" ,
+     'crane aid':   "cran aid" ,
+     'grant aid':   "cran aid" ,
+     'can aid':   "cran aid" ,
+     'tran a':   "cran aid" ,
+     'cranberry ice tea':   "cranberry iced tea" ,
+     'can be ice tea':   "cranberry iced tea" ,
+     'be a margarita':   "cranberry margarita" ,
+     'can be orange crush':   "cranberry orange crush" ,
+     'cranberry orange run spritzer':   "cranberry orange rum spritzer" ,
+     'cranberry orange rome spritzer':   "cranberry orange rum spritzer" ,
+     'can be a shot':   "cranberry shot" ,
+     'can be a tome':   "cranberry toad" ,
+     'can be a toad':   "cranberry toad" ,
+     'can be a toad':   "cranberry toad" ,
+     'can be a vodka':   "cranberry vodka" ,
+     'granting me':   "crantinis" ,
+     'granted me':   "crantinis" ,
+     'cream sickle delight':   "creamsicle delight" ,
+     'cream circle delight':   "creamsicle delight" ,
+     'then a gimlet':   "cranberry gimlet" ,
+     'can be a gimlet':   "cranberry gimlet" ,
+     'jane and cranberry':   "gin and cranberry" ,
+     'jane and orange':   "gin and orange" ,
+     'jan and orange':   "gin and orange" ,
+     'jin daiquiri':   "gin daiquiri" ,
+     'in daiquiri':   "gin daiquiri" ,
+     'jin screwdriver':   "gin screwdriver" ,
+     'legs better':   "leg spreader" ,
+     'may spreader':   "leg spreader" ,
+     'long beach t':   "long beach tea" ,
+     'my address':   "madras" ,
+     'my magic':   "madras" ,
+     'mexican murder':   "mexican madras" ,
+     'mexican my address':   "mexican madras" ,
+     'midnight sun marty':   "midnight sun martini" ,
+     'new england ice tea':   "new england iced tea" ,
+     'o j':   "oj" ,
+     'o j shot':   "oj shot" ,
+     'orange jin buck':   "orange gin buck" ,
+     'orange ken buck':   "orange gin buck" ,
+     'own skin back':   "orange gin buck" ,
+     'orange juice shop':   "orange juice shot" ,
+     'orange lime can fit':   "orange lime gin fizz" ,
+     'orange like gin fiz':   "orange lime gin fizz" ,
+     'orange lime jin fiz':   "orange lime gin fizz" ,
+     'pheonix suns that margarita':   "phoenix sunset margarita" ,
+     'prickly my address':   "prickly madras" ,
+     'prickly mr dress':   "prickly madras" ,
+     'run screwdriver':   "rum screwdriver" ,
+     'then screwdriver':   "rum screwdriver" ,
+     'gun shot':   "rum shot" ,
+     'from sun burst':   "rum sunburst" ,
+     'rum sanders':   "rum sunburst" ,
+     'rum son burst':   "rum sunburst" ,
+     'on sunday':   "rum sunburst" ,
+     'shite':   "shark" ,
+     'tequila like':   "tequila bite" ,
+     'tequila late':   "tequila bite" ,
+     'tequila night':   "tequila bite" ,
+     'tequila fight':   "tequila bite" ,
+     'tequila screw':   "tequila screwdriver" ,
+     'to kill a screwdriver':   "tequila screwdriver" ,
+     'to kill a shot':   "tequila shot" ,
+     'tequila shots':   "tequila shot" ,
+     'tequila son versed':   "tequila sunburst" ,
+     'tequila sunday':   "tequila sunburst" ,
+     'to kill a sunday':   "tequila sunburst" ,
+     'to kill a sudden burst':   "tequila sunburst" ,
+     'gts':   "gto" ,
+     'gtl':   "gto" ,
+     'gtx':   "gto" ,
+     'that guy cranberry':   "vodka cranberry" ,
+     'not that cranberry':   "vodka cranberry" ,
+     'that kid cranberry':   "vodka cranberry" ,
+     'that kid gimlet':   "vodka gimlet" ,
+     'not that gimlet':   "vodka gimlet" ,
+     'that guy gimlet':   "vodka gimlet" ,
+     'not a shot':   "vodka shot" ,
+     'not get shot':   "vodka shot" ,
+     'not that shot':   "vodka shot" ,
+     'that guess sunrise':   "vodka sunrise" ,
+     'like a sunrise':   "vodka sunrise" ,
+     'gym cosmopolitan':   "gin cosmopolitan" ,
+     'jin cosmopolitan':   "gin cosmopolitan" ,
+     'jim cosmopolitan':   "gin cosmopolitan" ,
+     'jin shot':   "gin shot" ,
+     'jane shot':   "gin shot" ,
+     'jan shot':   "gin shot",
+     'triple sec shot': "triplesec shot"
+}
+MENU_GARNISH = {
+  'blossom':   "splash of grenadine" ,
+  'citrus cranberry punch':   "sprite" ,
+  'cranberry orange crush':   "heavy splash of lemon lime soda" ,
+  'cranberry orange rum spritzer':   "lemon lime soda" ,
+  'creamsicle delight':   "gingerale" ,
+  'gin and tonic':   "tonic water" ,
+  'orange crush':   "sprite" ,
+  'orange gin buck':   "seltzer" ,
+  'orange lime gin fizz':   "lemon lime soda" ,
+  'phoenix sunset margarita':   "grenadine splash" ,
+  'tequila sunrise':   "grenadine splash" ,
+  'gto':   "tonic water" ,
+  'vodka sunrise':   "heavy splash of grenadine" ,
+  'vodka tonic':   "tonic water" 
+}
 
 maxWordsInName = 0
 
@@ -902,9 +1119,15 @@ def make_drink(drink_name):
     # calculate time to pour most used ingredient
     total_proportion = 0
     for p in sorted_recipe:
-        total_proportion += p['proportion']
-    drink_time = get_pour_time(sorted_recipe[0]['proportion'], total_proportion)
-    #print('Drink will take ' + str(math.floor(drink_time)) + 's')
+        print("proportion="+ str(p['proportion']) +" BTL="+ str(p['bottle']))
+        if p['bottle'] != 8:
+          total_proportion += p['proportion']
+    if sorted_recipe[0]['bottle'] != 8:     
+      drink_time = get_pour_time(sorted_recipe[0]['proportion'], total_proportion)
+    else:
+      drink_time = get_pour_time(sorted_recipe[1]['proportion'], total_proportion)
+
+    print('Drink will take ' + str(math.floor(drink_time)) + 's')
     pouringShot = False
     
     # for each pour
@@ -913,9 +1136,11 @@ def make_drink(drink_name):
         # for first ingredient
         if i == 0:
 
-            if pour['bottle'] ==8:
-                pouringShot = True
-                #print("Pouring a shot")
+            if pour['bottle'] == 8:
+              timeToPour=(math.floor(drink_time))
+              if pour['proportion'] == 99:
+                  pouringShot = True
+                  print("Pouring a shot")
             else:
               # start pouring with no delay
               pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(drink_time), 0 , True, drink_name]))
@@ -934,11 +1159,13 @@ def make_drink(drink_name):
             delay = random.randint(0, math.floor(latest_time))
             if pouringShot:
               delay = 0
+              pour_time = 1 / PUMP_SPEED
               timeToPour = math.floor(pour_time)
               pouringShot = False
-            pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(pour_time), delay]))
-            pour_thread.name = 'pour' + str(pour['bottle'])
-            pour_thread.start()
+            if pour['bottle'] !=8:
+              pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(pour_time), delay]))
+              pour_thread.name = 'pour' + str(pour['bottle'])
+              pour_thread.start()
     
     # print('time to pour ' + str(timeToPour) )
     return timeToPour      
@@ -1072,7 +1299,15 @@ def parseDrinkName(commandString):
                 found = True
                 drinkNameFound = drinkName
             else:
-                drinkNameFound = ''
+                print("drink not found in menu, check for alias")
+                if drinkName in MENU_ALIAS:
+                        print(drinkName +" ALIAS = " + MENU_ALIAS[drinkName]);
+                        found = True
+                        drinkNameFound = MENU_ALIAS[drinkName]
+                else:
+                        #print("looked for "+drinkName+" under "+str(key)+":"+str(aliasList) );
+                    
+                        drinkNameFound = ''
             firstIndex = firstIndex - 1
             # time.sleep(1)
         wordsToSearch = wordsToSearch - 1        
@@ -1183,6 +1418,11 @@ class AssistantThread(Thread):
             if DrinkBeingPoured:
                 time.sleep(pourTime)
                 speachEngine.say('Youre '+ drinkNameFound + ' is done.  Enjoy!')
+                speachEngine.runAndWait();
+                if drinkNameFound in MENU_GARNISH:
+                        speachEngine.say("To finish your drink please add" + MENU_GARNISH[drinkNameFound]);
+                        speachEngine.runAndWait();
+                speachEngine.say("Thanks for trying the drink machine!  come again.");
                 speachEngine.runAndWait();
             # Start the state machine for conversing
             print("call from gen_converse_request>>>>>>>>>>>")
