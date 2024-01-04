@@ -1409,14 +1409,11 @@ class AssistantThread(Thread):
                                  speachEngine.say('ok  What can i make for you?')
                                  speachEngine.runAndWait();
                                 
-                                # confirm selection
-                        #if speakString.find("gin and tonic")>=0:
-                        #if speakString.find("gin")>=0 and speakString.find("tonic")>=0:
-                            #speakString="gin and tonic"
-                            #DrinkBeingPoured = True
-                        # soundstream.stop_stream()
             if DrinkBeingPoured:
-                time.sleep(pourTime)
+                time.sleep(pourTime/2)
+                speachEngine.say('Your drink is half poured....Thanks for your patience.')
+                speachEngine.runAndWait()
+                time.sleep(pourTime/2)
                 speachEngine.say('Youre '+ drinkNameFound + ' is done.  Enjoy!')
                 speachEngine.runAndWait();
                 if drinkNameFound in MENU_GARNISH:
