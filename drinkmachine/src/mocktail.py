@@ -15,6 +15,7 @@ from threading import Thread, Event
 import threading
 #from queue import Queue
 from multiprocessing import Queue
+from subprocess import call
 
 import sounddevice as sd
 from vosk import Model, KaldiRecognizer
@@ -956,6 +957,17 @@ MENU = {
     { 'bottle' : 6, 'proportion': 0 },
     { 'bottle' : 7, 'proportion': 0 },
     { 'bottle' : 8, 'proportion': 99 },
+  ],
+    'flush the lines': [
+    { 'bottle' : 0, 'proportion': 1 },
+    { 'bottle' : 1, 'proportion': 1 },
+    { 'bottle' : 2, 'proportion': 1 },
+    { 'bottle' : 3, 'proportion': 1 },
+    { 'bottle' : 4, 'proportion': 1 },
+    { 'bottle' : 5, 'proportion': 1 },
+    { 'bottle' : 6, 'proportion': 1 },
+    { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
   ]
 }
 MENU_ALIAS = {
@@ -972,6 +984,7 @@ MENU_ALIAS = {
      'because no rita':   "cosmo rita" ,
      'cosmo reader':   "cosmo rita" ,
      'cause movie that':   "cosmo rita" ,
+     'cause more reader':   "cosmo rita" ,
      'cause no rita':   "cosmo rita" ,
      'crane aid':   "cran aid" ,
      'grant aid':   "cran aid" ,
@@ -1016,8 +1029,9 @@ MENU_ALIAS = {
      'own skin back':   "orange gin buck" ,
      'orange juice shop':   "orange juice shot" ,
      'orange lime can fit':   "orange lime gin fizz" ,
-     'orange like gin fiz':   "orange lime gin fizz" ,
-     'orange lime jin fiz':   "orange lime gin fizz" ,
+     'orange like gin fizz':   "orange lime gin fizz" ,
+     'orange lime jin fizz':   "orange lime gin fizz" ,
+     'orange line gin fizz':   "orange lime gin fizz" ,
      'pheonix suns that margarita':   "phoenix sunset margarita" ,
      'prickly my address':   "prickly madras" ,
      'prickly mr dress':   "prickly madras" ,
@@ -1053,6 +1067,7 @@ MENU_ALIAS = {
      'not a shot':   "vodka shot" ,
      'not get shot':   "vodka shot" ,
      'not that shot':   "vodka shot" ,
+     'vodka and tonic':   "vodka tonic" ,
      'that guess sunrise':   "vodka sunrise" ,
      'like a sunrise':   "vodka sunrise" ,
      'gym cosmopolitan':   "gin cosmopolitan" ,
@@ -1081,6 +1096,7 @@ MENU_GARNISH = {
 }
 
 maxWordsInName = 0
+speaking = False
 
 # contstants
 SER_DEVICE = '/dev/ttyACM0' # ensure correct file descriptor for connected arduino
@@ -1106,7 +1122,10 @@ def make_drink(drink_name):
     if not drink_name in MENU:
         print('drink "' + drink_name + '" not in menu')
         return
-    speachEngine.say('Making you a '+ drink_name);
+    if drink_name == "flush the lines":
+      speachEngine.say('Flushing out the lines');
+    else:
+      speachEngine.say('Making you a '+ drink_name);
     speachEngine.runAndWait();
     # get drink recipe
     recipe = MENU[drink_name]
@@ -1120,12 +1139,15 @@ def make_drink(drink_name):
     total_proportion = 0
     for p in sorted_recipe:
         print("proportion="+ str(p['proportion']) +" BTL="+ str(p['bottle']))
-        if p['bottle'] != 8:
+        if p['bottle'] != 8 or (p['bottle']==8 and p['proportion']!=99):
           total_proportion += p['proportion']
     if sorted_recipe[0]['bottle'] != 8:     
       drink_time = get_pour_time(sorted_recipe[0]['proportion'], total_proportion)
+      print('drink time = '+ str(drink_time))
     else:
       drink_time = get_pour_time(sorted_recipe[1]['proportion'], total_proportion)
+      print('drink time = '+ str(drink_time))
+
 
     print('Drink will take ' + str(math.floor(drink_time)) + 's')
     pouringShot = False
@@ -1161,6 +1183,7 @@ def make_drink(drink_name):
               delay = 0
               pour_time = 1 / PUMP_SPEED
               timeToPour = math.floor(pour_time)
+              print("shot pour time= "+str(timeToPour))
               pouringShot = False
             if pour['bottle'] !=8:
               pour_thread = Thread(target=trigger_pour, args=([msg_q, pour['bottle'], math.floor(pour_time), delay]))
@@ -1199,7 +1222,7 @@ def signal_handler(signal, frame):
         if t.name == 'AssistantThread' or t.name == 'SerialThread':
             t.shutdown_flag.set()
             print('killing ' + str(t.name))
-
+            
     print('Goodbye!')
     #sys.exit(1)
 
@@ -1241,11 +1264,15 @@ def poll(assistant_thread):
         
         
 def callback(indata, frames, time, status):
+
     """This is called (from a separate thread) for each audio block."""
     if status:
         print(status, file=sys.stderr)
-    q.put(bytes(indata))
-    # print('callback called')
+    if not speaking:
+      q.put(bytes(indata))
+       #print('callback called')
+    #else:
+        #print('ignore audio')
     
     
 #
@@ -1256,6 +1283,7 @@ def setup_audio():
     global model
     global dump_fn
     global sd
+
     device_info = sd.query_devices(None, "input")
     samplerate = int(device_info["default_samplerate"])
     model = Model(lang="en-us")
@@ -1327,7 +1355,7 @@ class AssistantThread(Thread):
 
     def run(self):
 
- 
+        global speaking
 #     # Keep the microphone open for follow on requests
         follow_on = False
         
@@ -1353,7 +1381,7 @@ class AssistantThread(Thread):
    
                 # conversation ux lights hotword
                 self.msg_queue.put('xh!')
-                speachEngine.say('welcom  What can i make for you?')
+                speachEngine.say('welcome  What can i make for you?')
                 speachEngine.runAndWait();
 
             else:
@@ -1384,30 +1412,46 @@ class AssistantThread(Thread):
                               drinkNameFound = parseDrinkName(speakString)
                               print('returned drink ' + drinkNameFound)
                               #print(' # words=' + str(len(A)) )
-                              if drinkNameFound == '':
+                              if speakString == "shut down":
+                                self.msg_queue.put('xo!')
+                                call("sudo nohup shutdown -h now", shell=True)
+                              elif speakString.find('random drink') != -1:
+                                drinkNameFound = str(random.choice(list(MENU)))
+                                print('Random Drink ='+drinkNameFound)
+                                speachEngine.say('Do you want a ' + drinkNameFound)
+                                speachEngine.runAndWait();
+                                GettingDrinkName = False
+                                GettingConfirmation = True
+                              elif drinkNameFound == '':
                                 print('drink "' + speakString + '" not in menu')
+                                speaking = True
                                 speachEngine.say('I don\'t understand "' + speakString + '" try again please.')
                                 speachEngine.runAndWait();
+                                speaking = False
                               else:                            
                                 # speachEngine.say('do you want a '+ speakString);
                                 parseDrinkName(speakString);
+                                speaking = True
                                 speachEngine.say('Do you want a ' + drinkNameFound)
                                 speachEngine.runAndWait();
+                                speaking = False
                                 GettingDrinkName = False
                                 GettingConfirmation = True
                             elif GettingConfirmation:
                                if ("yes" in speakString) or ("yup" in speakString) or ("yeah" in speakString):
                                
                                  # Making drink ux lights 
-                                 self.msg_queue.put('xl!')
+                                 self.msg_queue.put('xr!')
                                  pourTime=0;
                                  pourTime = make_drink(drinkNameFound);
                                  DrinkBeingPoured = True
                                elif ("no" in speakString):
                                  GettingConfirmation = False
                                  GettingDrinkName = True
+                                 speaking = True
                                  speachEngine.say('ok  What can i make for you?')
                                  speachEngine.runAndWait();
+                                 speaking = False
                                 
             if DrinkBeingPoured:
                 time.sleep(pourTime/2)
@@ -1488,11 +1532,16 @@ class SerialThread(Thread):
         Thread.__init__(self)
         self.shutdown_flag = Event()
         self.msg_queue = msg_queue;
-# add back   self.serial = serial.Serial(SER_DEVICE, 9600)
-# temporary code for no arduino
-        master,slave = pty.openpty()
-        s_name = os.ttyname(slave)
-        self.serial = serial.Serial(s_name)
+   
+        DEBUG = False
+        if DEBUG:
+          # temporary code for no arduino
+          master,slave = pty.openpty()
+          s_name = os.ttyname(slave)
+          self.serial = serial.Serial(s_name)
+        else:
+          # open up the arduino USB connection
+          self.serial = serial.Serial(SER_DEVICE, 9600)
         print('Serial thread running')
     
     def run(self):
@@ -1510,7 +1559,8 @@ class SerialThread(Thread):
             self.serial.write(str.encode(cmd))
             print('Serial shutting down command ' + cmd)
             time.sleep(0.1)
-
+        #  conversation ux lights off
+        self.serial.write(str.encode('xo!'))
 
 if __name__ == '__main__':
 
@@ -1534,6 +1584,8 @@ if __name__ == '__main__':
     ret_val = setup_audio()
 #  if ret_val == 0:
     print('Mixalater is running')
+    speachEngine.say('Mixilator version one point oh is up and running. Press the button to order a drink.')
+    speachEngine.runAndWait()
     # create message queue for communicating between threads
     msg_q = Queue()
 
