@@ -155,6 +155,17 @@ MENU = {
     { 'bottle' : 7, 'proportion': 8 },
     { 'bottle' : 8, 'proportion': 0 },
   ],
+    'anns cosmo': [
+    { 'bottle' : 0, 'proportion': 8 },
+    { 'bottle' : 1, 'proportion': 0 },
+    { 'bottle' : 2, 'proportion': 0 },
+    { 'bottle' : 3, 'proportion': 0 },
+    { 'bottle' : 4, 'proportion': 3 },
+    { 'bottle' : 5, 'proportion': 4 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 1 },
+    { 'bottle' : 8, 'proportion': 0 },
+  ],
   'cosmo': [
     { 'bottle' : 0, 'proportion': 2 },
     { 'bottle' : 1, 'proportion': 0 },
@@ -981,6 +992,9 @@ MENU_ALIAS = {
      'california v':   "california breeze" ,
      'california breathe':   "california breeze" ,
      'citrus cranberry point':   "citrus cranberry punch" ,
+     'and cosmos': "anns cosmo" ,
+     'my cosmo': "anns cosmo" ,
+     'my cosmos': "anns cosmo" ,
      'because no rita':   "cosmo rita" ,
      'cosmo reader':   "cosmo rita" ,
      'cause movie that':   "cosmo rita" ,
@@ -1398,7 +1412,8 @@ class AssistantThread(Thread):
                 rec = KaldiRecognizer(model, samplerate)
                 DrinkBeingPoured = False
                 GettingDrinkName = True
-                while not self.shutdown_flag.is_set() and not DrinkBeingPoured:
+                NoDrinkSelected = False
+                while not self.shutdown_flag.is_set() and not DrinkBeingPoured and not NoDrinkSelected:
                     data = q.get()
                     if rec.AcceptWaveform(data):
                         #print(rec.Result())
@@ -1415,6 +1430,10 @@ class AssistantThread(Thread):
                               if speakString == "shut down":
                                 self.msg_queue.put('xo!')
                                 call("sudo nohup shutdown -h now", shell=True)
+                              elif speakString == "nothing":
+                                 GettingDrinkName = False
+                                 GettingConfirmation = False
+                                 NoDrinkSelected = True
                               elif speakString.find('random drink') != -1:
                                 drinkNameFound = str(random.choice(list(MENU)))
                                 print('Random Drink ='+drinkNameFound)
@@ -1464,6 +1483,9 @@ class AssistantThread(Thread):
                         speachEngine.say("To finish your drink please add" + MENU_GARNISH[drinkNameFound]);
                         speachEngine.runAndWait();
                 speachEngine.say("Thanks for trying the drink machine!  come again.");
+                speachEngine.runAndWait();
+            elif NoDrinkSelected:
+                speachEngine.say("Ok thanks any way");
                 speachEngine.runAndWait();
             # Start the state machine for conversing
             print("call from gen_converse_request>>>>>>>>>>>")
