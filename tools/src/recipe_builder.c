@@ -3,17 +3,17 @@
 #include <string.h>
 #include <ctype.h>
 
-const char * getfield(char* line,int num,char* noValueString)
+char * getfield(char* line,int num,char* noValueString)
 {
     char* found;
 
 while(1)
 {
     found = strsep(&line,",");
-//    printf("%s  %08x\n",found,*found);
+    //printf("%s  %08x\n",found,*found);
     if(!--num)
     {
-       if (found[0] ==0)
+       if (found[0] == 0  || found[0] == 0xd)
        {
          
          return  noValueString;
@@ -73,6 +73,9 @@ int main()
            printf("  ],\n");
         }
         fclose(stream);
+// -------------------  build alias dictionary  ------------- //
+        char * returnString;
+        char * tmp ;
 
 	stream = fopen("recipes.csv","r");
 
@@ -80,43 +83,51 @@ int main()
         while (fgets(line,1024, stream))
         {
            for(int i =0;line[i];i++)
-            { line[i]=tolower(line[i]); }
+           {
+              line[i]=tolower(line[i]);
+              if (line[i] == 0xd)line[i]=0;
+           }
 
-           char * tmp = strdup(line);
-           printf("  '%s': [\n",getfield(tmp,1,"0"));
-           free (tmp);
+         for(int i=11;i<=14;i++)
+         {
            tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           free (tmp);
-           tmp = strdup(line);
-           printf("    { 'alias' : \"%s\" },\n",getfield(tmp,11,""));
-           free (tmp);
-           tmp = strdup(line);
-           printf("    { 'alias' : \"%s\" },\n",getfield(tmp,12,""));
-           free (tmp);
-           tmp = strdup(line);
-           printf("    { 'alias' : \"%s\" },\n",getfield(tmp,13,""));
-           free (tmp);
-           tmp = strdup(line);
-           printf("    { 'alias' : \"%s\" },\n",getfield(tmp,14,""));
-           free (tmp);
-           printf("  ],\n");
+           returnString = getfield(tmp,i,"");
+           if (returnString !="")
+           {
+              printf("     '%s': ",returnString);
+              free (tmp);
+              tmp = strdup(line);
+              printf("  \"%s\" ,\n",getfield(tmp,1,"0"));
+              free (tmp);
+           }
+         }
         }
+        printf("}\n");
+        fclose(stream);
+// -------------------  build drink finish dictionary  ------------- //
+	stream = fopen("recipes.csv","r");
+
+        printf("MENU_GARNISH = {\n"); 
+        while (fgets(line,1024, stream))
+        {
+           for(int i =0;line[i];i++)
+           {
+              line[i]=tolower(line[i]);
+              if (line[i] == 0xd)line[i]=0;
+           }
+
+           tmp = strdup(line);
+           returnString = getfield(tmp,15,"");
+           free (tmp);
+           if (returnString !="")
+           {
+              tmp = strdup(line);
+              printf("  '%s': ",getfield(tmp,1,"0"));
+              printf("  \"%s\" ,\n",returnString);
+              free (tmp);
+           }
+        }
+        printf("}\n");
         fclose(stream);
 }
 
