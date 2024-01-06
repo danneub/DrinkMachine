@@ -206,8 +206,8 @@ MENU = {
     { 'bottle' : 3, 'proportion': 0 },
     { 'bottle' : 4, 'proportion': 0 },
     { 'bottle' : 5, 'proportion': 0 },
-    { 'bottle' : 6, 'proportion': 1 },
-    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 1 },
     { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry': [
@@ -217,8 +217,8 @@ MENU = {
     { 'bottle' : 3, 'proportion': 0 },
     { 'bottle' : 4, 'proportion': 0 },
     { 'bottle' : 5, 'proportion': 0 },
-    { 'bottle' : 6, 'proportion': 6 },
-    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 6 },
     { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry iced tea': [
@@ -239,8 +239,8 @@ MENU = {
     { 'bottle' : 3, 'proportion': 0 },
     { 'bottle' : 4, 'proportion': 0 },
     { 'bottle' : 5, 'proportion': 0 },
-    { 'bottle' : 6, 'proportion': 6 },
-    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 6 },
     { 'bottle' : 8, 'proportion': 0 },
   ],
   'cranberry kamikaze': [
@@ -294,8 +294,8 @@ MENU = {
     { 'bottle' : 3, 'proportion': 0 },
     { 'bottle' : 4, 'proportion': 0 },
     { 'bottle' : 5, 'proportion': 0 },
-    { 'bottle' : 6, 'proportion': 1 },
-    { 'bottle' : 7, 'proportion': 0 },
+    { 'bottle' : 6, 'proportion': 0 },
+    { 'bottle' : 7, 'proportion': 1 },
     { 'bottle' : 8, 'proportion': 99 },
   ],
   'cranberry toad': [
