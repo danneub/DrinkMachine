@@ -1114,7 +1114,7 @@ speaking = False
 
 # contstants
 SER_DEVICE = '/dev/ttyACM0' # ensure correct file descriptor for connected arduino
-PUSH_TO_TALK = False #True
+PUSH_TO_TALK = True  # False to use keyboard
 PUSH_TO_TALK_PIN = 38
 PUMP_SPEED = 0.056356667 # 100 ml / min = 0.056356667 oz / sec
 NUM_BOTTLES = 8
@@ -1254,7 +1254,7 @@ def poll(assistant_thread):
 
         # get input value
         val = GPIO.input(PUSH_TO_TALK_PIN)
-        # print("input = ", val)
+        #print("input = ", val)
 
         # shift values
         vals[2] = vals[1]
@@ -1266,7 +1266,7 @@ def poll(assistant_thread):
         if (is_active == False) and (vals[2] == 0) and (vals[1] == 1) and (vals[0] == 1):
             is_active = True
             assistant_thread.button_flag.set()
-            print('Start talking')
+            #print('Start talking')
 
         # check for button release
         # if (is_active == True) and (vals[2] == 0) and (vals[1] == 1) and (vals[0] == 1):
@@ -1361,7 +1361,7 @@ def parseDrinkName(commandString):
 
 class AssistantThread(Thread):
 
-    def __init__(self, msg_queue):
+    def __init__(self, msg_queue, started_evt):
         Thread.__init__(self)
         self.shutdown_flag = Event()
         self.button_flag = Event()
@@ -1374,6 +1374,7 @@ class AssistantThread(Thread):
         follow_on = False
         
         print('Assistant Thread running')
+        started_evt.set()
 
         while not self.shutdown_flag.is_set():
 
@@ -1385,9 +1386,10 @@ class AssistantThread(Thread):
 
                 if PUSH_TO_TALK:
                     while not self.button_flag.is_set():
-                        print("read button")
+                        #print("read button")
                         time.sleep(0.1)
-                        self.button_flag.clear()
+                    self.button_flag.clear()
+                    #print('exited read button loop')
                 else :
                     print('Press Enter to send a new request.')
                     x = input("Enter command")
@@ -1617,16 +1619,18 @@ if __name__ == '__main__':
     serial_thread.start()
     
     # start assistant thread
-    assistant_thread = AssistantThread(msg_q)
+    started_evt = Event()
+    assistant_thread = AssistantThread(msg_q, started_evt)
     assistant_thread.name = 'AssistantThread'
     assistant_thread.start()
 
     # # wait for main to finish until assistant thread is done
-    assistant_thread.join()
+    #assistant_thread.join()
+    started_evt.wait()
     time.sleep(0.5)
 
     if PUSH_TO_TALK:
-
+        print('use button-------------------')
         # setup push to talk and start thread
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(PUSH_TO_TALK_PIN, GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
